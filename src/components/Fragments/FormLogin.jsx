@@ -5,37 +5,47 @@ import InputForm from "../Elements/Inputs";
 const FormLogin = () => {
   const [formData, setFormData] = useState({
     email: "",
-    password: ""
+    password: "",
   });
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
   useEffect(() => {
     const savedEmail = localStorage.getItem("email");
     const savedPassword = localStorage.getItem("password");
-    
+
     if (savedEmail || savedPassword) {
       setFormData({
         email: savedEmail || "",
-        password: savedPassword || ""
+        password: savedPassword || "",
       });
     }
   }, []);
 
   const handleLogin = (event) => {
     event.preventDefault();
-    localStorage.setItem("email", formData.email);
-    localStorage.setItem("password", formData.password);
-    window.location.href = "/product";
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+
+    if (
+      storedUser &&
+      storedUser.email === formData.email &&
+      storedUser.password === formData.password
+    ) {
+      localStorage.setItem("isLoggedIn", "true");
+      window.location.href = "/home";
+    } else {
+      alert("Email atau Password salah!");
+    }
   };
 
-  const isFormValid = formData.email.trim() !== "" && formData.password.trim() !== "";
+  const isFormValid =
+    formData.email.trim() !== "" && formData.password.trim() !== "";
 
   return (
     <form onSubmit={handleLogin} className="flex flex-col gap-5">
@@ -44,20 +54,20 @@ const FormLogin = () => {
         type="email"
         placeholder="example@gmail.com"
         name="email"
-        value={formData.email} // Sinkronisasi state ke input
-        onChange={handleInputChange} // Sekarang sudah terdefinisi
+        value={formData.email} 
+        onChange={handleInputChange} 
       />
       <InputForm
         label="Password"
         type="password"
         placeholder="*******"
         name="password"
-        value={formData.password} // Sinkronisasi state ke input
-        onChange={handleInputChange} // Sekarang sudah terdefinisi
+        value={formData.password} 
+        onChange={handleInputChange} 
       />
-      <Button 
-        className="box-border w-full" 
-        type="submit" 
+      <Button
+        className="box-border w-full"
+        type="submit"
         disabled={!isFormValid}
       >
         Login

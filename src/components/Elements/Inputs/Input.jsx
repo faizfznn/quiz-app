@@ -2,7 +2,7 @@ import { useState } from "react";
 import { EyeIcon, EyeOffIcon } from "@heroicons/react/solid";
 
 const Input = (props) => {
-  const { type, placeholder, name, onChange, value } = props; // Tambahkan value di sini
+  const { type, placeholder, name, onChange, value } = props;
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePassword = () => setShowPassword(!showPassword);
@@ -21,7 +21,7 @@ const Input = (props) => {
         "
         placeholder={placeholder}
         name={name}
-        value={value} // Tambahkan ini
+        value={value}
         onChange={onChange}
       />
 
@@ -32,7 +32,6 @@ const Input = (props) => {
           className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
           onChange={onChange}
         >
-          {/* Mengubah EyeOffIcon menjadi EyeSlashIcon agar sesuai import */}
           {showPassword ? (
             <EyeOffIcon className="w-5 h-5" />
           ) : (
