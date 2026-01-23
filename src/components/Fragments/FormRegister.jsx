@@ -1,8 +1,10 @@
 import { useState } from "react";
 import Button from "../Elements/Button/Button";
+import { useNavigate } from "react-router-dom";
 import InputForm from "../Elements/Inputs";
 
 const FormRegister = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
@@ -30,7 +32,7 @@ const FormRegister = () => {
       password: formData.password,
     };
     localStorage.setItem("user", JSON.stringify(userData));
-    window.location.href = "/login";
+    navigate("/login");
   };
 
   const isFormValid =
