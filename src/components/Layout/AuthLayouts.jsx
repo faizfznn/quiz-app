@@ -7,7 +7,7 @@ const AuthLayout = (props) => {
     <div className="flex min-h-screen bg-white font-['Inter']">
       <div className="hidden lg:flex w-1/2 bg-[#F0F7FF] m-4 rounded-3xl flex-col p-12 relative overflow-hidden">
         <h1 className="text-4xl font-bold text-[#151515] leading-tight max-w-md">
-          Halo, Selamat Datang Kembali di Cerebellum
+          Halo, Selamat Datang Kembali di Quiz App
         </h1>
         <div className="mt-auto relative z-10">
           <img
@@ -43,7 +43,7 @@ const AuthLayout = (props) => {
           </div>
 
           <h2 className="text-3xl font-bold text-center text-[#151515] mb-2">
-            {type === "login" ? "Masuk ke Cerebellum" : "Daftar Akun Baru"}
+            {type === "login" ? "Masuk ke Quiz App" : "Daftar Akun Baru"}
           </h2>
           <p className="text-center text-gray-500 mb-8">
             Akses perjalanan belajarmu yang sudah dimulai.

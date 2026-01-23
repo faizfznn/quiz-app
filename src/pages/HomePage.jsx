@@ -10,8 +10,8 @@ const HomePage = () => {
         <h2 className="text-2xl font-bold text-[#151515] mb-8 font-['Inter']">Ayo Latihan Quiz</h2>
         <div className="flex flex-wrap gap-8">
           <CardProduct 
-            title="Responsive Design dengan Flexbox" 
-            image="https://placehold.co/600x400/003366/white?text=Flexbox+Course"
+            title="Generate Random Quiz" 
+            image="https://placehold.co/600x400/003366/white?text=Random+Quiz"
           />
         </div>
       </main>
