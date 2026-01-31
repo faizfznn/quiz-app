@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import IconProfile from "../../assets/icon.png";
+import loginImage from "../../assets/login.png";
+import registerImage from "../../assets/register.png";
 
 const AuthLayout = (props) => {
   const { children, title, type } = props;
@@ -7,13 +9,15 @@ const AuthLayout = (props) => {
     <div className="flex min-h-screen bg-white font-['Inter']">
       <div className="hidden lg:flex w-1/2 bg-[#F0F7FF] m-4 rounded-3xl flex-col p-12 relative overflow-hidden">
         <h1 className="text-4xl font-bold text-[#151515] leading-tight max-w-md">
-          Halo, Selamat Datang Kembali di Quiz App
+          {type === "login"
+            ? "Halo, Selamat Datang Kembali di Quiz App"
+            : "Ayo Bergabung dengan Cerebellum!"}
         </h1>
-        <div className="mt-auto relative z-10">
+        <div className="mt-auto relative z-1 top-12 left-12">
           <img
-            src="/path-to-your-illustration.png"
+            src={type === "login" ? loginImage : registerImage}
             alt="Illustration"
-            className="w-3/4"
+            className="w-[641.9px]"
           />
         </div>
       </div>

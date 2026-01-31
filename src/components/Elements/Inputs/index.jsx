@@ -6,7 +6,7 @@ const InputForm = (props) => {
   return (
     <div className="flex flex-col gap-2 self-stretch items-start">
       <Label htmlFor={name}>{label}</Label>
-      <Input name={name} type={type} placeholder={placeholder} onChange={onChange} /> 
+      <Input name={name} id={name} type={type} placeholder={placeholder} onChange={onChange} /> 
     </div>
   );
 };
